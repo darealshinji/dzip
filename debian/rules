@@ -1,0 +1,27 @@
+#!/usr/bin/make -f
+
+
+%:
+	dh ${@} --with autoreconf
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf static-build
+
+override_dh_auto_configure:
+	LDFLAGS="$(LDFLAGS) -static" dh_auto_configure
+
+override_dh_auto_build:
+	dh_auto_build
+	dh_auto_install --destdir=static-build
+	dh_auto_clean
+	dh_auto_configure
+	dh_auto_build
+
+override_dh_install:
+	dh_install -pdzip
+	dh_install -pdzip-static --sourcedir=static-build
+
+override_dh_installchangelogs:
+	dh_installchangelogs -A ChangeLog
+

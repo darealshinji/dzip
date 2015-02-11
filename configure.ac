@@ -1,7 +1,6 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.69])
 AC_INIT([dzip], [2.9])
 AC_CONFIG_SRCDIR([source/main.c])
 

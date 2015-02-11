@@ -1,4 +1,4 @@
-AM_CFLAGS = -m32 -Wall
+AM_CFLAGS = -m32 -Wall -Wno-unused-result
 
 bin_PROGRAMS = dzip
 

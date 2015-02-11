@@ -315,7 +315,7 @@ void dem_temp_entity(void)
 		directory[numfiles].type = TYPE_NEHAHRA;
 		if (entitytype == 17)
 		{
-			copy_msg(strlen(inptr + 2) + 17);
+			copy_msg(sizeof(inptr + 2) + 17);
 			return;
 		}
 		if (entitytype > 17) /* this should be a bailout */

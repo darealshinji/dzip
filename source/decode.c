@@ -318,7 +318,7 @@ extern uchar te_size[];
 void demx_temp_entity(void)
 {
 	if (inptr[1] == 17)
-		copy_msg(strlen(inptr + 2) + 17);
+		copy_msg(sizeof(inptr + 2) + 17);
 	else
 		copy_msg(te_size[inptr[1]]);
 }
@@ -381,6 +381,7 @@ void demx_updateentity(void)
 	int baseval = 0, prev;
 	ent_t n, o;
 	long tmp;
+	int* tmp_;
 
 #ifndef GUI
 	if (dem_decode_type == TYPE_DEMV1) { demv1_updateentity(); return; }
@@ -518,15 +519,18 @@ void demx_updateentity(void)
 
 			if (n.fullbright)
 				f = 2;
-			tmp = cnvlong(*(int *)&f);
+			tmp_ = (int *)&f;
+			tmp  = cnvlong(tmp_);
 			memcpy(ptr, &tmp, 4);
-			tmp = cnvlong(*(int *)&n.alpha);
+			tmp_ = (int *)&n.alpha;
+			tmp  = cnvlong(tmp_);
 			memcpy(ptr + 4, &tmp, 4);
 			ptr += 8;
 			if (f == 2)
 			{
 				f = (char)(n.fullbright - 1);
-				tmp = cnvlong(*(int *)&f);
+				tmp_ = (int *)&f;
+				tmp  = cnvlong(tmp_);
 				memcpy(ptr, &tmp, 4);
 				ptr += 4;
 			}

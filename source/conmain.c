@@ -188,8 +188,7 @@ long getlong (uchar *c)
 
 float getfloat (uchar *c)
 {
-	long l = getlong(c);
-	return *(float*)(&l);
+	return (float)(getlong(c));
 }
 
 #endif

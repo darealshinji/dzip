@@ -1,0 +1,46 @@
+18.07.02: Version 2.9
+          added -a and -d to add/delete files from existing dz
+          add compression of whole directories
+          added error continuation and -e switch to quit on first error
+          added support for 2-4GB files on some platforms
+          changed layout of -l listings
+
+14.05.02: Version 2.8
+          fixed problems with compression/uncompression of .dem
+           files that were not compliant Quake demo files
+          updated zlib to v1.1.4
+
+24.01.01: Version 2.5
+          extraction of quake demos is now 4x or more faster
+          fixed a few minor problems
+
+24.10.00: Version 2.2
+          fixed rare dem encoding problem with out of order spawnbaseline messages
+          while adding files, protection against bad .pak files
+
+24.08.00: Version 2.1
+          fixed a few more dem encoding problems (Remaic-related)
+          better handling of tiny files
+          added support for Nehahra .dem's
+          other small bug fixes
+
+28.07.00: Version 2.0
+          slightly improved compression
+          significantly faster
+          removed -p option; dzip now remembers if a file
+           was in a pak and re-creates the pak automatically
+          fixed bugs for demos edited with demix or other tools
+          date and time of files are preserved
+          now displays compression ratio
+          finally fixed all bugs with wildcard and path expansion
+
+01.07.00: Version 1.2
+          fixed wildcard bug in Windows version
+          improved Hipnotic compatibility
+
+21.06.00: Version 1.1
+          added wildcard expansion for Windows (thanks Nolan)
+          fixed a bug during decompression
+
+20.06.00: Version 1.0
+          initial public release

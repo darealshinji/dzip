@@ -10,19 +10,21 @@ Homepage: http://quake.speeddemosarchive.com/dzip/
 
 Package: dzip
 Architecture: i386
+Multi-Arch: foreign
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Replaces: dzip-static
+Conflicts: dzip-static
 Description: compression program for Quake demos
  Dzip is a compression program with the special purpose of compressing
  Quake .dem files.
 
 Package: dzip-static
 Architecture: i386
+Multi-Arch: foreign
 Depends: ${misc:Depends}
-Replaces: dzip
-Description: compression program for Quake demos - static build
+Provides: dzip
+Conflicts: dzip
+Description: compression program for Quake demos (static version)
  Dzip is a compression program with the special purpose of compressing
  Quake .dem files.
  .
- Statically linked version.
-
+ Statically linked.

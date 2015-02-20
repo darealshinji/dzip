@@ -1,9 +1,13 @@
-AM_CFLAGS = -m32 -Wall -Wno-unused-result
+AM_CFLAGS = -m32 -Wall -Wno-unused-result -I./include
 
-bin_PROGRAMS = dzip
+include_HEADERS = \
+	include/dzip.h \
+	include/dzipcon.h \
+	include/dzip-zconf.h \
+	include/dzip-zlib.h
 
-dzip_SOURCES = \
-	main.c \
+lib_LTLIBRARIES = libdzip.la
+libdzip_la_SOURCES = \
 	compress.c \
 	uncompress.c \
 	list.c \
@@ -22,4 +26,8 @@ dzip_SOURCES = \
 	zlib/infcodes.c \
 	zlib/infutil.c \
 	zlib/inffast.c
+
+bin_PROGRAMS = dzip
+dzip_SOURCES = main.c
+dzip_LDADD = libdzip.la
 

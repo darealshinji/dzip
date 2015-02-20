@@ -5,7 +5,10 @@ AC_INIT([dzip], [2.9])
 AC_CONFIG_SRCDIR([source/main.c])
 
 AC_CONFIG_AUX_DIR([build-aux])
-AM_INIT_AUTOMAKE([subdir-objects])
+AM_INIT_AUTOMAKE([foreign subdir-objects])
+AM_SILENT_RULES([yes])
+
+LT_INIT
 
 # Checks for programs.
 AC_PROG_CC
@@ -21,5 +24,6 @@ AC_FUNC_REALLOC
 AC_CHECK_FUNCS([ftruncate memset strcasecmp strchr strdup strerror strpbrk utime])
 
 AC_CONFIG_FILES([Makefile
-                 source/Makefile])
+                 source/Makefile
+				 dzip.1])
 AC_OUTPUT

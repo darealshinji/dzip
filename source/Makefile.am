@@ -15,7 +15,8 @@ libdzip_la_SOURCES = \
 	encode.c \
 	decode.c \
 	v1code.c \
-	conmain.c \
+	main.c \
+	conmain-lib.c \
 	delete.c \
 	zlib/adler32.c \
 	zlib/deflate.c \
@@ -28,6 +29,6 @@ libdzip_la_SOURCES = \
 	zlib/inffast.c
 
 bin_PROGRAMS = dzip
-dzip_SOURCES = main.c
+dzip_SOURCES = conmain.c
 dzip_LDADD = libdzip.la
 

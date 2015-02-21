@@ -6,16 +6,17 @@
 
 override_dh_auto_clean:
 	dh_auto_clean
-	rm -rf dzip-static dzip-static.1
+	rm -rf dzip-static dzip-static.1 tmp
 
 override_dh_auto_configure:
 	LDFLAGS="$(LDFLAGS) -static" dh_auto_configure
 	cp dzip.1 dzip-static.1
 
 override_dh_auto_build:
-	dh_auto_build
-	cp source/.libs/dzip dzip-static
+	dh_auto_build -- V=1
+	$(MAKE) install DESTDIR=$(CURDIR)/tmp
+	mv tmp/usr/bin/dzip dzip-static
 	dh_auto_clean
 	dh_auto_configure
-	dh_auto_build
+	dh_auto_build -- V=1
 

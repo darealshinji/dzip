@@ -17,6 +17,7 @@ Description: compression program for Quake demos
 
 Package: libdzip0
 Architecture: i386
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends},
          ${misc:Depends}
 Description: compression program for Quake demos - shared library
@@ -27,7 +28,7 @@ Description: compression program for Quake demos - shared library
 
 Package: libdzip-dev
 Architecture: i386
-Depends: ${misc:Depends}
+Depends: ${misc:Depends},
          libdzip0 (= ${binary:Version})
 Description: compression program for Quake demos - development
  Dzip is a compression program with the special purpose of compressing
@@ -38,7 +39,8 @@ Description: compression program for Quake demos - development
 
 Package: dzip-static
 Architecture: i386
-Depends: ${misc:Depends}
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
 Description: compression program for Quake demos (static version)
  Dzip is a compression program with the special purpose of compressing
  Quake .dem files.

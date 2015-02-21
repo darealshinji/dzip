@@ -5,47 +5,47 @@
 
 /* @(#) $Id$ */
 
-#ifndef _ZCONF_H
-#define _ZCONF_H
+#ifndef _DZIP_ZCONF_H
+#define _DZIP_ZCONF_H
 
 /*
  * If you *really* need a unique prefix for all types and library functions,
- * compile with -DZ_PREFIX. The "standard" zlib should be compiled without it.
+ * compile with -DDZ_PREFIX.
  */
-#ifdef Z_PREFIX
-#  define deflateInit_	z_deflateInit_
-#  define deflate	z_deflate
-#  define deflateEnd	z_deflateEnd
-#  define inflateInit_ 	z_inflateInit_
-#  define inflate	z_inflate
-#  define inflateEnd	z_inflateEnd
-#  define deflateInit2_	z_deflateInit2_
-#  define deflateSetDictionary z_deflateSetDictionary
-#  define deflateCopy	z_deflateCopy
-#  define deflateReset	z_deflateReset
-#  define deflateParams	z_deflateParams
-#  define inflateInit2_	z_inflateInit2_
-#  define inflateSetDictionary z_inflateSetDictionary
-#  define inflateSync	z_inflateSync
-#  define inflateSyncPoint z_inflateSyncPoint
-#  define inflateReset	z_inflateReset
-#  define compress	z_compress
-#  define compress2	z_compress2
-#  define uncompress	z_uncompress
-#  define adler32	z_adler32
-#  define crc32		z_crc32
-#  define get_crc_table z_get_crc_table
+#ifdef DZ_PREFIX
+#  define deflateInit			dz_deflateInit
+#  define deflate				dz_deflate
+#  define deflateEnd			dz_deflateEnd
+#  define inflateInit 			dz_inflateInit
+#  define inflate				dz_inflate
+#  define inflateEnd			dz_inflateEnd
+/* #  define deflateInit2			dz_deflateInit2 */
+#  define deflateSetDictionary 	dz_deflateSetDictionary
+#  define deflateCopy			dz_deflateCopy
+#  define deflateReset			dz_deflateReset
+#  define deflateParams			dz_deflateParams
+#  define inflateInit2_			dz_inflateInit2_
+#  define inflateSetDictionary 	dz_inflateSetDictionary
+#  define inflateSync			dz_inflateSync
+#  define inflateSyncPoint		dz_inflateSyncPoint
+#  define inflateReset			dz_inflateReset
+#  define compress				dz_compress
+#  define compress2				dz_compress2
+#  define uncompress			dz_uncompress
+#  define adler32				dz_adler32
+#  define crc32					dz_crc32
+#  define get_crc_table 		dz_get_crc_table
 
-#  define Byte		z_Byte
-#  define uInt		z_uInt
-#  define uLong		z_uLong
-#  define Bytef	        z_Bytef
-#  define charf		z_charf
-#  define intf		z_intf
-#  define uIntf		z_uIntf
-#  define uLongf	z_uLongf
-#  define voidpf	z_voidpf
-#  define voidp		z_voidp
+#  define Byte		dz_Byte
+#  define uInt		dz_uInt
+#  define uLong		dz_uLong
+#  define Bytef		dz_Bytef
+#  define charf		dz_charf
+#  define intf		dz_intf
+#  define uIntf		dz_uIntf
+#  define uLongf	dz_uLongf
+#  define voidpf	dz_voidpf
+#  define voidp		dz_voidp
 #endif
 
 #if (defined(_WIN32) || defined(__WIN32__)) && !defined(WIN32)
@@ -276,4 +276,4 @@ typedef uLong FAR uLongf;
 #   pragma map(inflate_trees_free,"INTRFR")
 #endif
 
-#endif /* _ZCONF_H */
+#endif /* _DZIP_ZCONF_H */

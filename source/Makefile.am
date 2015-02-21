@@ -1,4 +1,5 @@
-AM_CFLAGS = -m32 -Wall -Wno-unused-result -I./include
+AM_CFLAGS = -m32 -Wall -Wno-unused-result
+AM_CPPFLAGS = -I./include -DDZ_PREFIX
 
 include_HEADERS = \
 	include/dzip.h \

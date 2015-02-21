@@ -30,8 +30,8 @@
   1.1.4 changes done on 4/25/02
 */
 
-#ifndef _ZLIB_H
-#define _ZLIB_H
+#ifndef _DZIP_ZLIB_H
+#define _DZIP_ZLIB_H
 
 #include "dzip-zconf.h"
 
@@ -892,4 +892,4 @@ ZEXTERN const uLongf * ZEXPORT get_crc_table    OF((void));
 }
 #endif
 
-#endif /* _ZLIB_H */
+#endif /* _DZIP_ZLIB_H */

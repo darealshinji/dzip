@@ -9,11 +9,14 @@ aclocal.m4
 libtool
 
 dzip.1
+dzip.pc
 source/dzip
 
 .deps
 .dirstamp
 .libs
+
+.pc
 
 *.log
 *.o

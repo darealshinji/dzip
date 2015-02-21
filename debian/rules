@@ -1,5 +1,7 @@
 #!/usr/bin/make -f
 
+LDFLAGS += -Wl,-z,defs
+
 
 %:
 	dh ${@} --parallel --with autoreconf

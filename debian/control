@@ -2,29 +2,46 @@ Source: dzip
 Section: utils
 Priority: optional
 Maintainer: Marshall Banana <djcj@gmx.de>
-Build-Depends:
- debhelper (>= 9),
- dh-autoreconf
+Build-Depends: debhelper (>= 9),
+               dh-autoreconf
 Standards-Version: 3.9.5
 Homepage: http://quake.speeddemosarchive.com/dzip/
 
 Package: dzip
 Architecture: i386
-Multi-Arch: foreign
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Conflicts: dzip-static
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
 Description: compression program for Quake demos
  Dzip is a compression program with the special purpose of compressing
  Quake .dem files.
 
+Package: libdzip0
+Architecture: i386
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Description: compression program for Quake demos - shared library
+ Dzip is a compression program with the special purpose of compressing
+ Quake .dem files.
+ .
+ This package provides the shared library to compress/decompress dzip archives.
+
+Package: libdzip-dev
+Architecture: i386
+Depends: ${misc:Depends}
+         libdzip0 (= ${binary:Version})
+Description: compression program for Quake demos - development
+ Dzip is a compression program with the special purpose of compressing
+ Quake .dem files.
+ .
+ This package provides the static library and header files to link programs
+ against libdzip.
+
 Package: dzip-static
 Architecture: i386
-Multi-Arch: foreign
 Depends: ${misc:Depends}
-Provides: dzip
-Conflicts: dzip
 Description: compression program for Quake demos (static version)
  Dzip is a compression program with the special purpose of compressing
  Quake .dem files.
  .
- Statically linked.
+ This package provides statically linked binary file.
+

@@ -2,26 +2,20 @@
 
 
 %:
-	dh ${@} --with autoreconf
+	dh ${@} --parallel --with autoreconf
 
 override_dh_auto_clean:
 	dh_auto_clean
-	rm -rf static-build
+	rm -rf dzip-static dzip-static.1
 
 override_dh_auto_configure:
 	LDFLAGS="$(LDFLAGS) -static" dh_auto_configure
+	cp dzip.1 dzip-static.1
 
 override_dh_auto_build:
 	dh_auto_build
-	dh_auto_install --destdir=static-build
+	cp source/.libs/dzip dzip-static
 	dh_auto_clean
 	dh_auto_configure
 	dh_auto_build
-
-override_dh_install:
-	dh_install -pdzip
-	dh_install -pdzip-static --sourcedir=static-build
-
-override_dh_installchangelogs:
-	dh_installchangelogs -A ChangeLog
 

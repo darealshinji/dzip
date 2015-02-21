@@ -8,5 +8,6 @@ Description: dzip compression library
 Version: @VERSION@
 
 Requires:
+Conflicts: zlib
 Libs: -L${libdir}
 Cflags: -I${includedir}

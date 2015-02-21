@@ -38,13 +38,24 @@ enum  { SW_LIST, SW_EXTRACT, SW_VERIFY,
 	SW_FORCE, SW_HALT, SW_ADD, SW_DELETE, NUM_SWITCHES };
 
 void dzAddFile(char *);
+
+/* free directory and close current dz */
 void dzClose (void);
+
+/* create list[] array from command prompt files list */
 void dzDeleteFiles_MakeList (char **, int);
+
 void dzList (char *);
+
+/* open a dz file, return 0 on failure */
 int dzOpen (char *, int);
+
 void dzUncompress (char *);
 void dzUncompressV1 (int);
+
+/* does not return ever */
 void errorFatal (const char *, ...);
+
 FILE *open_create (char *);
 
 extern FILE *infile, *outfile;

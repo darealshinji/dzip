@@ -81,36 +81,79 @@ void dem_compress (uInt, uInt);
 void dem_copy_ue (void);
 uInt dem_uncompress (uInt);
 void dem_uncompress_init (int);
+
+/* this file deals with uncompressing files made by
+   version 1.x of Dzip and can be omitted without much harm! */
 void demv1_clientdata (void);
 void demv1_updateentity (void);
 void demv1_dxentities (void);
+
 void dzAddFolder (char *);
 void dzCompressFile (char *, uInt, uInt);
 void dzDeleteFiles  (uInt *, int, void (*)(uInt, uInt));
 void dzExtractFile (uInt, int);
+
+/* int is the number of bytes that are already used in
+   inblk because they were moved back from the last block
+   which is only going to happen for quake demos */
 int dzRead (int);
+
+/* read in all the stuff from a dz file, return 0 if not valid */
 int dzReadDirectory (char *);
+
+/* read from dz */
 void dzFile_Read (void *, uInt);
+
+/* write to dz */
 void dzFile_Write (void *, uInt);
+
+/*	get filesize of dz, returns zero if it could not
+	be determined, most likely because it was >= 4GB */
 uInt dzFile_Size (void);
+
+/* change file pointer of dz */
 void dzFile_Seek (uInt);
+
+/* chop off end of dz; this is implementation dependent
+   and may need adjusting for other platforms */
 void dzFile_Truncate (void);
+
 void dzWrite (void *, int);
 void dzWriteDirectory (void);
+
+/* safe set of allocation functions */
 void *Dzip_malloc (uInt);
 void *Dzip_realloc (void *, uInt);
 char *Dzip_strdup (const char *);
+
 void end_zlib_compression (void);
+
+/* does not return if -e was specified on cmd line */
 void error (const char *, ...);
+
+/* returns a pointer directly to the period of the extension,
+   or it there is none, to the nul character at the end */
 char *FileExtension (char *);
+
 int get_filetype (char *);
+
+/* returns pointer to filename from a full path */
 char *GetFileFromPath (char *);
+
+/* read from file being compressed */
 void Infile_Read (void *, uInt);
+
+/* change file pointer in file being compressed (used for .pak) */
 void Infile_Seek (uInt);
+
+/* called when compression was unsuccessful (negative ratio) */
 void Infile_Store (uInt);
+
 void insert_msg (void *, uInt);
 void make_crc (uchar *, int);
 void normal_compress (uInt);
+
+/* write to the file being extracted */
 void Outfile_Write (void *, uInt);
 
 #define pakid *(int *)"PACK"
@@ -148,6 +191,7 @@ extern direntry_t *directory;
 
 #else
 
+/* byte swapping on big endian machines */
 short getshort (uchar *);
 long getlong (uchar *);
 float getfloat (uchar *);

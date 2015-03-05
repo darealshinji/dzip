@@ -9,5 +9,5 @@ Version: @VERSION@
 
 Requires:
 Conflicts: zlib
-Libs: -L${libdir}
+Libs: -L${libdir} -ldz
 Cflags: -I${includedir}

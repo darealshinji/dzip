@@ -16,11 +16,15 @@ reduce program size by a little bit.
 
 Compilation instructions:
 
-Compiling Dzip itself is very straightforward;
-an example Makefile for gcc on linux or solaris is included.
+First run `./autogen.sh`. Then a `./configure && make` should build the program.
+See `./configure --help` for more options. To install run `make install`.
+There are no special build dependencies, the GNU compilers and automake is all
+you need. On Ubuntu or Debian you can install everything you need with
+`sudo apt-get install build-essential automake`.
 
-* For Solaris (or big-endian machines in general), it is necessary to define
-  BIG_ENDIAN.
+Be aware that this program works only correctly as a 32 bit application.
+On a 64 bit system you'll need the 32 bits glibc development files.
+On Debian/Ubuntu just install `gcc-multilib`.
 
 
 Technical information:

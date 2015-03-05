@@ -1,7 +1,8 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_INIT([dzip], [2.9])
+AC_INIT([dzip], [2.9], [https://github.com/darealshinji/dzip])
+AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR([source/main.c])
 
 AC_CONFIG_AUX_DIR([build-aux])
@@ -11,6 +12,12 @@ AM_SILENT_RULES([yes])
 # Checks for programs.
 AC_PROG_CC
 LT_INIT
+
+# Check if compiler supports "-m32".
+AX_CHECK_COMPILE_FLAG([-m32], [], [exit 1])
+
+# Check if linker supports "-m32".
+AX_CHECK_LINK_FLAG([-m32], [], [exit 1])
 
 # Checks for header files.
 AC_CHECK_HEADERS([malloc.h stddef.h stdlib.h string.h unistd.h utime.h])

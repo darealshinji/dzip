@@ -1,16 +1,17 @@
-autom4te.cache
-build-aux
+/autom4te.cache/
+/build-aux/
+/m4/
 
-config.*
-configure
+/config.*
+/configure
 Makefile
 Makefile.in
-aclocal.m4
-libtool
+/aclocal.m4
+/libtool
 
-dzip.1
-dzip.pc
-source/dzip
+/dzip.1
+/dzip.pc
+/source/dzip
 
 .deps
 .dirstamp
@@ -26,6 +27,10 @@ source/dzip
 *.so
 *.so.*
 *.exe
+*.dll
+*.lib
+*.app
+*.dylib
 
 *~
 *.old

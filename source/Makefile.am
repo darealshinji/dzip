@@ -1,12 +1,8 @@
 AM_CFLAGS   = -m32 -Wall -Wno-unused-result
-AM_CPPFLAGS = -I./include -DDZ_PREFIX
+AM_CPPFLAGS = -DDZ_PREFIX
 AM_LDFLAGS  = -m32
 
-include_HEADERS = \
-	include/dzip.h \
-	include/dzipcon.h \
-	include/dzip-zconf.h \
-	include/dzip-zlib.h
+include_HEADERS = dzip.h dzipcon.h dzip-zconf.h dzip-zlib.h
 
 lib_LTLIBRARIES = libdzip.la
 libdzip_la_SOURCES = \

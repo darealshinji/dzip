@@ -2,9 +2,11 @@
 
 LDFLAGS += -Wl,-z,defs
 
-
 %:
 	dh ${@} --parallel --with autoreconf
+
+override_dh_autoreconf:
+	dh_autoreconf -- ./autogen.sh
 
 override_dh_auto_clean:
 	dh_auto_clean
@@ -21,4 +23,3 @@ override_dh_auto_build:
 	dh_auto_clean
 	dh_auto_configure
 	dh_auto_build -- V=1
-

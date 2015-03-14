@@ -16,7 +16,7 @@ unsigned long crc_reflect(unsigned long x, int bits)
 
 void crc_init(void)
 {
-	unsigned long crcpol = 0x04c11db7;
+	unsigned long crcpol = 0x04C11DB7; /* CRC-32 bit mask */
 	unsigned long i, j, k;
 
 	for (i = 0; i < 256; i++)
@@ -31,5 +31,5 @@ void crc_init(void)
 void make_crc (unsigned char *ptr, int len)
 {
 	while (len--)
-		crcval = (crcval >> 8) ^ crctable[(crcval & 0xff) ^ *ptr++];
+		crcval = (crcval >> 8) ^ crctable[(crcval & 0x000000FF) ^ *ptr++];
 }

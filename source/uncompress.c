@@ -125,6 +125,12 @@ void dzExtractFile (uInt filepos, int testing)
 		inflateEnd(&zs);
 	}
 
+/* for debugging/testing purpose */
+/*
+	printf("\n: crcval: %lu\n", crcval);
+	printf(": de->crc: %d\n", de->crc);
+*/
+
 	if (!AbortOp && crcval != de->crc) 
 	{
 #ifdef GUI

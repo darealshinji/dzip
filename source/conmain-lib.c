@@ -169,7 +169,7 @@ char *Dzip_strdup (const char *str)
 	return m;		
 }
 
-#ifdef BIG_ENDIAN
+#if BYTE_ORDER == BIG_ENDIAN
 /* byte swapping on big endian machines */
 short getshort (uchar *c)
 {

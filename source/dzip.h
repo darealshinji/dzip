@@ -182,21 +182,17 @@ SFXVAR cdata_t oldcd, newcd;
 SFXVAR ent_t base[MAX_ENT], oldent[MAX_ENT], newent[MAX_ENT];
 extern direntry_t *directory;
 
-#ifndef BIG_ENDIAN
-
-#define getshort(x) (*(short*)(x))
-#define getlong(x) (*(long*)(x))
-#define getfloat(x) (*(float*)(x))
-#define cnvlong(x) (x)
-
-#else
-
+#if BYTE_ORDER == BIG_ENDIAN
 /* byte swapping on big endian machines */
 short getshort (uchar *);
 long getlong (uchar *);
 float getfloat (uchar *);
 #define cnvlong(x) getlong((uchar*)(&x))
-
+#else
+#define getshort(x) (*(short*)(x))
+#define getlong(x) (*(long*)(x))
+#define getfloat(x) (*(float*)(x))
+#define cnvlong(x) (x)
 #endif
 
 #define Z_BUFFER_SIZE 16384
@@ -206,12 +202,10 @@ extern uInt ztotal;
 extern int zlevel;
 
 #ifdef GUI
-
 void GuiProgressMsg(const char *, ...);
 #define printf
 #define fprintf
 #define fflush
-
 #endif
 
 #ifdef WIN32

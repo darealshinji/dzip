@@ -2,6 +2,8 @@
 /build-aux/
 /m4/
 
+/debian/
+
 /config.*
 /configure
 Makefile
@@ -12,6 +14,9 @@ Makefile.in
 /dzip.1
 /dzip.pc
 /source/dzip
+
+/dzip-2.9.tar.gz
+/dzip-2.9.tar.xz
 
 .deps
 .dirstamp

@@ -2,7 +2,7 @@ ACLOCAL_AMFLAGS = -I m4
 
 SUBDIRS = source
 
-EXTRA_DIST = autogen.sh dzip.txt m4macros
+EXTRA_DIST = autogen.sh dzip.txt
 
 doc_DATA = README dzip.txt
 man1_MANS = dzip.1

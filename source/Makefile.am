@@ -1,6 +1,5 @@
-AM_CFLAGS   = -m32 -Wall -Wno-unused-result
+AM_CFLAGS   = -Wall
 AM_CPPFLAGS = -DDZ_PREFIX
-AM_LDFLAGS  = -m32
 
 include_HEADERS = \
 	dzip.h \

@@ -195,10 +195,10 @@ void DoFiles (char *fname, void (*func)(char *))
 
 #else
 
-	struct stat64 filestats;
+	struct stat filestats;
 	struct tm *trec;
 
-	if (stat64(fname, &filestats))
+	if (stat(fname, &filestats))
 	{	/* file probably doesn't exist if this failed */
 		error("could not open %s: %s", fname, strerror(errno));
 		return;
@@ -371,9 +371,9 @@ int main(int argc, char **argv)
 	if (!fd.nFileSizeHigh)
 		dzsize = fd.nFileSizeLow;
 #else
-	struct stat64 filestats;
+	struct stat filestats;
 
-	if (!stat64(fname, &filestats))
+	if (!stat(fname, &filestats))
 		if (!(filestats.st_size > 0xFFFFFFFF))
 			dzsize = filestats.st_size;
 #endif

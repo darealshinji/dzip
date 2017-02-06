@@ -9,9 +9,6 @@ AM_SILENT_RULES([yes])
 AC_PROG_CC
 LT_INIT([win32-dll])
 
-AX_CHECK_COMPILE_FLAG([-m32], [], [exit 1])
-AX_CHECK_LINK_FLAG([-m32], [], [exit 1])
-
 AC_CONFIG_FILES([Makefile
                  source/Makefile
                  dzip.1

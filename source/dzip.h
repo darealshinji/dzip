@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <inttypes.h>
 
 #include "dzip-zlib.h"
 
@@ -177,7 +178,7 @@ SFXVAR long cam0, cam1, cam2;
 SFXVAR uchar *inblk, *outblk, *inptr;
 extern uchar *tmpblk;
 extern char AbortOp;
-extern unsigned long crcval;
+extern uint32_t crcval;
 SFXVAR cdata_t oldcd, newcd;
 SFXVAR ent_t base[MAX_ENT], oldent[MAX_ENT], newent[MAX_ENT];
 extern direntry_t *directory;

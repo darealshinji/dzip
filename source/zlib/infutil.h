@@ -84,9 +84,9 @@ struct inflate_blocks_state {
 /*   load local pointers */
 #define LOAD {LOADIN LOADOUT}
 
-/* masks for lower bits (size given to avoid silly warnings with Visual C++) */
+/* masks for lower bits */
 // Dzip: added const
-const extern uInt inflate_mask[17];
+extern const uInt inflate_mask[];
 
 /* copy as much as possible from the sliding window to the output area */
 extern int inflate_flush OF((

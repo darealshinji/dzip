@@ -17,11 +17,6 @@ void * _get_osfhandle(int);
 #include <dirent.h>
 #include <unistd.h>
 
-/* adjust if target platform supports large files */
-#ifndef sparc
-#define stat64 stat
-#endif
-
 #define CreateDir(x) mkdir(x->name, 0x1ff)
 
 /* it may be necessary to use this macro instead (mac os X)

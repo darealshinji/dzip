@@ -381,7 +381,6 @@ void demx_updateentity(void)
 	int baseval = 0, prev;
 	ent_t n, o;
 	long tmp;
-	int* tmp_;
 
 #ifndef GUI
 	if (dem_decode_type == TYPE_DEMV1) { demv1_updateentity(); return; }
@@ -515,22 +514,19 @@ void demx_updateentity(void)
 /* nehahra */
 		if (n.force & 0x800000)
 		{
-			float f = 1;
+			int f = 1;
 
 			if (n.fullbright)
 				f = 2;
-			tmp_ = (int *)&f;
-			tmp  = cnvlong(tmp_);
+			tmp = cnvlong(f);
 			memcpy(ptr, &tmp, 4);
-			tmp_ = (int *)&n.alpha;
-			tmp  = cnvlong(tmp_);
+			tmp = cnvlong(n.alpha);
 			memcpy(ptr + 4, &tmp, 4);
 			ptr += 8;
 			if (f == 2)
 			{
 				f = (char)(n.fullbright - 1);
-				tmp_ = (int *)&f;
-				tmp  = cnvlong(tmp_);
+				tmp = cnvlong(f);
 				memcpy(ptr, &tmp, 4);
 				ptr += 4;
 			}

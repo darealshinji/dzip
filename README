@@ -22,10 +22,6 @@ There are no special build dependencies, the GNU compilers and automake is all
 you need. On Ubuntu or Debian you can install everything you need with
 `sudo apt-get install build-essential automake`.
 
-Be aware that this program works only correctly as a 32 bit application.
-On a 64 bit system you'll need the 32 bits glibc development files.
-On Debian/Ubuntu just install `gcc-multilib`.
-
 
 Technical information:
 

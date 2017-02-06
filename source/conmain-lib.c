@@ -99,7 +99,8 @@ void dzFile_Truncate(void)
 #ifdef _MSC_VER
 	SetEndOfFile(_get_osfhandle(fileno(dzfile)));
 #else
-	ftruncate(fileno(dzfile), ftell(dzfile));
+	if (!ftruncate(fileno(dzfile), ftell(dzfile)))
+		error("ftruncate()");
 #endif
 }
 

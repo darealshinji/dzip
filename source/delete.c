@@ -1,8 +1,9 @@
 #include "dzip.h"
 
-int intcmp (const uInt *arg1, const uInt *arg2)
+int intcmp (const void *arg1, const void *arg2)
 {
-	if (*arg1 < *arg2) return -1;
+	if ((const uInt *)arg1 < (const uInt *)arg2)
+		return -1;
 	return 1;
 }
 
